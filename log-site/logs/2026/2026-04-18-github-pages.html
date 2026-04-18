@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Pages ログ管理サイト構想整理 | ログ管理</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/detail.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <a href="../../index.html" class="back-link">← 一覧に戻る</a>
+        <h1 class="site-title">📋 ログ管理</h1>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="container">
+      <article class="post-detail">
+
+        <div class="post-detail-header">
+          <div class="post-detail-meta">
+            <span class="badge" style="background:#dbeafe;color:#2563eb">仕事</span>
+            <span class="badge badge-sub">自動化</span>
+            <span class="badge badge-year">2026年度</span>
+          </div>
+          <h1 class="post-detail-title">GitHub Pages ログ管理サイト構想整理</h1>
+          <p class="post-detail-date">📅 2026-04-18</p>
+          <div class="post-tags">
+            <span class="tag">GitHub</span>
+            <span class="tag">Notion</span>
+            <span class="tag">自動化</span>
+          </div>
+        </div>
+
+        <div class="post-summary-box">
+          ログ管理WebページをGitHub Pagesで構築する構想を整理。分類・検索・スマホ対応を軸に設計。第1段階の骨格実装に着手。
+        </div>
+
+        <div class="post-body">
+          <h2>背景・目的</h2>
+          <p>
+            これまでローカルのPC内に散在していたログや資料を、Web上で一元管理できる仕組みを構築したいと考えてきた。
+            スマホからもアクセスできること、あとから分類・検索ができること、を最低条件として設計を進めた。
+          </p>
+          <p>
+            Notionやローカルフォルダでの管理も試みたが、PCとスマホの行き来や、人に見せるときの手間が課題だった。
+            GitHub Pagesを使えばURLで共有でき、静的サイトなのでコストもかからない。
+          </p>
+
+          <h2>方針</h2>
+          <p>以下の構成で進めることを決定した。</p>
+          <ul>
+            <li><strong>表示:</strong> GitHub Pages（静的HTML）</li>
+            <li><strong>データ管理:</strong> JSON形式（posts.json）</li>
+            <li><strong>検索・絞り込み:</strong> バニラJavaScript（フレームワーク不要）</li>
+            <li><strong>分類体系:</strong> 大分類 / 中分類 / タグ / 年度の4軸</li>
+            <li><strong>閲覧端末:</strong> PC・スマホ両対応（レスポンシブ）</li>
+          </ul>
+
+          <h2>実装優先順位</h2>
+          <p>
+            一気に作り切るより「動く骨格を作って実データを入れながら調整する」方針。
+            分類の粒度やタグの設計は、実際に10〜30件溜めてみないと最適解が見えない。
+          </p>
+          <ul>
+            <li><strong>第1段階:</strong> トップ一覧、大分類フィルター、詳細ページ表示</li>
+            <li><strong>第2段階:</strong> キーワード検索、タグ・中分類の絞り込み</li>
+            <li><strong>第3段階:</strong> 最近の更新表示、関連記事、人気タグ</li>
+          </ul>
+
+          <h2>今後の課題</h2>
+          <p>
+            posts.jsonを手で書くのは20件を超えたあたりから苦行になる。
+            Markdownのフロントマターから自動生成するPythonスクリプトを早めに整備する予定。
+          </p>
+          <p>
+            また、中分類「自動化」が「仕事」と「HINOVA」両方に存在するように、
+            分類が重複するケースが今後出てくる。運用しながら調整する。
+          </p>
+        </div>
+
+        <div class="post-attachments">
+          <h3>関連リンク</h3>
+          <ul>
+            <li><a href="#">仕様書（Notion）</a></li>
+            <li><a href="../../index.html">← ログ一覧に戻る</a></li>
+          </ul>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-back">
+      <a href="../../index.html">← 一覧に戻る</a>
+      &nbsp;|&nbsp; ログ管理システム
+    </div>
+  </footer>
+
+</body>
+</html>
